@@ -1,0 +1,40 @@
+make_play(position) In this function we take a parameter position which
+holds the index value of clicked div.
+then, First we check in if condition that Gameover is true or false and second we
+check that In board array all index should not be " " empty string if any of the condition
+is true then it return false and make_play function end.
+if  both condition are false then we move to the nxt statement here we create a variable
+currentSymbol which store O or X from option array according to the turn_index
+then we store the value of currentSymbol in board array at the position which is passed in parameter eg:board[O,"",....]
+
+then it calls the draw function in draw function it store the board array value's in all the div innerHTML .
+
+then we create a const winning_sequence_index which is equal to function
+check_winning_seq(currentSymbol) having parameter currentSymbol which is having value of O or X 
+
+then check_winning_seq function is call In this function we created a for loop 
+which run i=o to i=winning_sequence.length which is 7 and in each iteration it check
+that board[this.winner_sequences[i][0]] === symbol &&
+        this.board[this.winner_sequences[i][1]] === symbol &&
+        this.board[this.winner_sequences[i][2]] === symbol)
+in any iteration if this three condition is true then it return current value of i which
+is the winning_sequence of that  currentSymbol 
+if this three condition false every iteration then  it return -1
+
+then after returning -1 or else value of i it stored in our winning_sequence_index variable
+ then in if condition we call a function is_game_over in this function we check in our board array
+ there is empty string is present or not . it return not including empty string then if statement
+ is execute which is a function game_is_over()  in this function it change the value of gameover=true;
+ it means game over 
+
+ then we move on to the nxt if condition it checks that winning_sequence_index is greater than or equal
+ to 0 then it calls gameover function then it call the stylize_winner_sequence() function
+ having a parameter winning_sequence array with index of winning_sequence_index;
+In stylize_winner_sequence function we take a winner_sequence array in foreach loop  position
+we take a arrow function in this container_element select the div nth-chlid and a classList with ('winner')
+
+if our winning_sequence_index is not >=0 then else part is run in this we just call the change function 
+which is inside the symbols object change function simply change X to O and O to X .
+then return true
+
+
